@@ -40,9 +40,9 @@ int main()
     // write all the students details in students.txt
     for (int i = 0; i < 3; i++)
     {
-        fprintf(fp,"Name: %s\n", student[i].name);
-        fprintf(fp,"Age: %d\n", student[i].age);
-        fprintf(fp,"Marks: %.2f\n\n", student[i].marks);
+        fprintf(fp,"%s\n", student[i].name);
+        fprintf(fp,"%d\n", student[i].age);
+        fprintf(fp,"%.2f\n\n", student[i].marks);
     }
 
     fclose(fp);

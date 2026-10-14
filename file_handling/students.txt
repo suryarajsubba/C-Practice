@@ -1,12 +1,12 @@
-Name: Surya
-Age: 19
-Marks: 99.99
+Surya
+19
+99.99
 
-Name: Arush
-Age: 19
-Marks: 0.01
+Arush
+19
+0.01
 
-Name: Pratyay
-Age: 20
-Marks: 69.69
+Pratyay
+20
+69.69
 
