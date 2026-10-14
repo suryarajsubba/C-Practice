@@ -42,7 +42,7 @@ int main()
     {
         fprintf(fp,"%s\n", student[i].name);
         fprintf(fp,"%d\n", student[i].age);
-        fprintf(fp,"%.2f\n\n", student[i].marks);
+        fprintf(fp,"%.2f\n", student[i].marks);
     }
 
     fclose(fp);
