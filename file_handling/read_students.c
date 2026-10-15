@@ -28,7 +28,7 @@ int main()
 
         fscanf(fp, "%d", &student[i].age);
         fscanf(fp, "%f", &student[i].marks);
-        fgetc(fp);
+        fgetc(fp);      //consumes the newline character(\n) after marks.
     }
 
     for (int i=0; i<3; i++)

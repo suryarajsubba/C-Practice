@@ -33,7 +33,7 @@ int main()
 
         printf("Enter marks of %s: ", student[i].name);
         scanf("%f", &student[i].marks);
-        getchar();
+        getchar();      //consumes the newline character(\n) when we press Enter after entering marks
     }
     printf("\n");
 
