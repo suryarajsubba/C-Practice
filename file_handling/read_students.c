@@ -21,14 +21,22 @@ int main()
 
     struct students student[3];
     
-    fgets(student[0].name, sizeof(student[0].name), fp);
-    student[0].name[strcspn(student[0].name, "\n")] = '\0';
-    fscanf(fp, "%d", &student[0].age);
-    fscanf(fp, "%f", &student[0].marks);
+    for (int i=0; i<3; i++)
+    {
+        fgets(student[i].name, sizeof(student[i].name), fp);
+        student[i].name[strcspn(student[i].name, "\n")] = '\0';
 
-    printf("%s\n",student[0].name);
-    printf("%d\n",student[0].age);
-    printf("%.2f\n",student[0].marks);
+        fscanf(fp, "%d", &student[i].age);
+        fscanf(fp, "%f", &student[i].marks);
+        fgetc(fp);
+    }
+
+    for (int i=0; i<3; i++)
+    {
+        printf("%s\n",student[i].name);
+        printf("%d\n",student[i].age);
+        printf("%.2f\n",student[i].marks);
+    }
     
     fclose(fp);
 
