@@ -1,3 +1,8 @@
 *.exe
 tempCodeRunnerFile.c
+
+# Ignore compiled programs
 **/build/
+
+# Ignore test data
+/file_handling/students.txt
