@@ -48,6 +48,18 @@ int main()
     }
     float average = sum/3;
     printf("Average marks = %.2f\n", average);
+
+    //print students with marks above average
+    printf("---Students scoring above average---\n");
+    for (int i=0; i<3; i++)
+    {
+        if (student[i].marks>average)
+        {
+            printf("%s\n", student[i].name);
+            printf("%d\n", student[i].age);
+            printf("%.2f\n", student[i].marks);
+        }
+    }
     
     fclose(fp);     //close students.txt
 
