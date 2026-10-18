@@ -10,6 +10,13 @@ int main()
 
     int *ptr = calloc(n, sizeof(int));      //allocate memory and initialise all integers to 0
 
+    //check allocation failures
+    if (ptr==NULL)
+    {
+        printf("Memory allocation failed\n");
+        return 1;
+    }
+
     // //user input
     // for (int i=0; i<n; i++)
     // {

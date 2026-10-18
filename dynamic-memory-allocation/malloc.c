@@ -10,6 +10,13 @@ int main()
 
     int *ptr = malloc(n * sizeof(int));
 
+    //check allocation failures
+    if (ptr==NULL)
+    {
+        printf("Memory allocation failed\n");
+        return 1;
+    }
+
     //user input
     for (int i=0; i<n; i++)
     {
