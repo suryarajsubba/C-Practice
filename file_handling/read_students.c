@@ -11,54 +11,63 @@ struct students
 int main()
 {
     FILE *fp;
-    fp = fopen("students.txt","r");     //open students.txt in read mode
-    
-    if (fp==NULL)
+    fp = fopen("students.txt", "r"); // open students.txt in read mode
+
+    if (fp == NULL)
     {
         printf("Unable to open file.\n");
         return 1;
     }
 
     struct students student[100];
-    
-    //reading from students.txt
+
+    // reading from students.txt
     int i = 0;
-    while (i<100 && fgets(student[i].name,sizeof(student[i].name),fp ) != NULL) //fgets() returns NULL at EOF
+    while (i < 100 && fgets(student[i].name, sizeof(student[i].name), fp) != NULL) // fgets() returns NULL at EOF
     {
         student[i].name[strcspn(student[i].name, "\n")] = '\0';
 
-        fscanf(fp, "%d", &student[i].age);
-        fscanf(fp, "%f", &student[i].marks);
-        fgetc(fp);      //consumes the newline character(\n) after marks.
+        if (fscanf(fp, "%d", &student[i].age) != 1)
+        {
+            printf("Invalid age data in file.\n");
+            break;
+        }
+        
+        if (fscanf(fp, "%f", &student[i].marks) != 1)
+        {
+            printf("Invalid marks data in file.\n");
+            break;
+        }
+        fgetc(fp); // consumes the newline character(\n) after marks.
 
         i++;
     }
 
-    //print all students info from students.txt
-    for (int j=0; j<i; j++)
+    // print all students info from students.txt
+    for (int j = 0; j < i; j++)
     {
-        printf("%s\n",student[j].name);
-        printf("%d\n",student[j].age);
-        printf("%.2f\n",student[j].marks);
+        printf("%s\n", student[j].name);
+        printf("%d\n", student[j].age);
+        printf("%.2f\n", student[j].marks);
     }
 
-    //calculating average marks
-    if (i!=0)
+    // calculating average marks
+    if (i != 0)
     {
         float average;
         float sum = 0;
-        for (int j=0; j<i; j++)
+        for (int j = 0; j < i; j++)
         {
             sum += student[j].marks;
         }
-        average = sum/i;
+        average = sum / i;
         printf("Average marks = %.2f\n", average);
 
-        //print students with marks above average
+        // print students with marks above average
         printf("---Students scoring above average---\n");
-        for (int j=0; j<i; j++)
+        for (int j = 0; j < i; j++)
         {
-            if (student[j].marks>average)
+            if (student[j].marks > average)
             {
                 printf("%s\n", student[j].name);
                 printf("%d\n", student[j].age);
@@ -66,13 +75,13 @@ int main()
             }
         }
     }
-    
+
     else
     {
         printf("No student records found.\n");
     }
 
-    fclose(fp);     //close students.txt
+    fclose(fp); // close students.txt
 
     return 0;
 }
